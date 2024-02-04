@@ -1,10 +1,7 @@
 console.log("Web Server boshlash");
-
 const http = require("http")
 // expressni kochirib olamiz  npm i express
-
 const express = require("express");
-
 const app = express(); //shu belgini qoysek bizga expressni app objectni yuboradi
 // app objectida shartli server quramiz
 // expressgakirib kelayotgan malumotlarga bogliq bolgan code larmiz yoziladi
@@ -48,15 +45,33 @@ server.listen(PORT, function(){
 
 //! "dev": "nodemon"  dev run nodemon  
 
+
 */
+
+const fs = require("fs");
+
+let user; // userni publishing bolish uchun pass qilamiz 
+fs.readFile("database/user.json", "utf8", (err,data ) => {
+if(err) {
+    console.log("ERROR:",err); // bu error bolgandegi chiqadigon hato
+}else{
+    user = JSON.parse(data); // bu ishalgan  paytda data ni oladi 
+}
+});
+
+
 //4 Routine code 
 app.post("/create-list", (req, res) => {   //post formdan shu erga keladi 
     console.log(req); // body qismidan requestni qabul qiladi  body qismidan malumot keladi
     res.json({ test: "succes"}); // res.json  json shaklida malumotni qaytarish 
 })
 
-app.get("/", (req, res) => {
+app.get("/ ", (req, res) => {
     res.render("harid")
+})
+
+app.get("/author", (req, res) => {
+    res.render("author", { user: user}) //userni pass qildik
 })
 
 const server = http.createServer(app); //biz yasab olgan express app variableni pass qilish
