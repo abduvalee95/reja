@@ -2,6 +2,7 @@ console.log("Web Server boshlash");
 const http = require("http")
 // expressni kochirib olamiz  npm i express
 const express = require("express");
+const res = require("express/lib/express");
 const app = express(); //shu belgini qoysek bizga expressni app objectni yuboradi
 // app objectida shartli server quramiz
 // expressgakirib kelayotgan malumotlarga bogliq bolgan code larmiz yoziladi
