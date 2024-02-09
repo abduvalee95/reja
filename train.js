@@ -40,7 +40,7 @@ function counterLetter(str, letter) {
 }
 
 const leter = "Assalomu alaykum";
-const count1 = "a";
+const count1 = "s";
 const result1 = counterLetter(leter, count1);
 console.log(`siz yozgan yozuvda "${count1}"dan ${result1} ta mavjud`)
 // const myString = "Hello,how are you!";
