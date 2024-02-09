@@ -78,7 +78,7 @@ app.get("/author", (req, res) => {
 const server = http.createServer(app); //biz yasab olgan express app variableni pass qilish
 let PORT = 3000;
 server.listen(PORT, function(){
-     console.log("Server ishga tushdi:",PORT);
+     console.log("Server ishga tushdi:",`${PORT}`);
 }); // server succes bolsa iwlasa fucntion ishga tushadi 
 
 

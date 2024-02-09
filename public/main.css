@@ -32,15 +32,16 @@
 
 
 /* O'ng tomondegi frame */
-.main_frame .right_frame {
+.right_frame {
     position: relative;
     width: 108px;
     height: 1315px;
-    background-color: white;
-    align-items: center;
+    background: white;
+    border:1px solid #2b2b2b;
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .main_frame .left_frame .left_1 {
@@ -309,8 +310,26 @@
 }
 
 .boxes {
+    width: 970px;
+    height: 653px;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    gap: 10px;
+    justify-content: space-between;
+}
+.bottom-box {
+    width: 310px;
+    height: 225px;
+    background-color: #FFB400;
+}
+
+.frame-img {
+    margin-top: 50px;
+}
+
+.right-frame-img {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    margin-top: 210px;
 }
