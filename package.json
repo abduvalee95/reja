@@ -4,7 +4,7 @@
   "description": "Bu bizning birinchi loyhamiz",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "nodemon server.js",
     "train": "nodemon train.js",
     "trains": "nodemon train.js",
