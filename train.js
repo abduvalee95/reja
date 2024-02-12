@@ -1,4 +1,4 @@
-// let letter = ['ksddd']
+/* // let letter = ['ksddd']
 
 // function counterCreat(a,letter) {
 
@@ -23,7 +23,7 @@
 
 
 
-
+// **                                       task -A
 function counterLetter(str, letter) {
     let count = 0;
     
@@ -47,3 +47,31 @@ console.log(`siz yozgan yozuvda "${count1}"dan ${result1} ta mavjud`)
 // const letterToCount = "o";
 // const result = counterLetter(myString, letterToCount);
 // console.log(`The letter "${letterToCount}" occurs ${result} times in the string.`);
+
+ */
+// **                               Task -B
+function countDigit(str) {
+    let count = 0; // Raqamlar soni uchun hisoblovchi o'zgaruvchi
+    for (let i = 0; i < str.length; i++) { // Raqamlarni sanash uchun tsikl
+        if (!isNaN(str[i]) && str[i] !== ' ') { // Raqam emasligini va bo'shliq emasligini tekshiramiz
+            count++; // Raqamlarni hisobga olish
+        }
+    }
+    return count; // Hisobni qaytarish
+}
+
+const c = countDigit('rn245j5es323'); // Funksiyani chaqirish
+console.log(c); // Konsolga natijani chiqarish
+
+
+// **                             Task optional
+
+// const xayvonlar = ['tulki','bori','ot','baliq']
+
+// function findAnimal(txt) {
+// for (let i = 0; i <txt.length;i++){
+//     if (!txt[i]){
+//         const a = pop(txt).length
+//     }
+// }
+// }
