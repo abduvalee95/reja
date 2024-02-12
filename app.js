@@ -1,5 +1,6 @@
 console.log("Web Server boshlash");
 
+/*
 const http = require("http")
 // expressni kochirib olamiz  npm i express
 const express = require("express");
@@ -49,15 +50,82 @@ server.listen(PORT, function(){
 
 */
 //4 Routine code 
-app.post("/create-list", (req, res) => {   //post formdan shu erga keladi 
-    console.log(req.body); // body qismidan requestni qabul qiladi  body qismidan malumot keladi
-    res.json({ test: "succes"}); // res.json  json shaklida malumotni qaytarish 
-})
+// app.post("/create-list", (req, res) => {   //post formdan shu erga keladi 
+//     console.log(req.body); // body qismidan requestni qabul qiladi  body qismidan malumot keladi
+//     res.end("succes"); // res.json  json shaklida malumotni qaytarish 
+// })
 
-app.get("/", (req, res) => {
-    res.render("reja")
-})
-module.exports = app
+// app.get("/", (req, res) => {
+//     res.render("reja")
+// })
+
+
+
 
 // ** GET: databasedan malumotni olish uchun ishlatiladi malumotni oqish uchun 
 // ** POST: databasega malumot yuborish uchun ishlatiladi ozi bn olib keladi 
+
+
+// const express = require("express");
+const express = require("express");
+
+const db = require('./server').db();
+// const db = require('./server').db() //shu orqali Crud ni amalga oshiramiz
+
+const app = express();
+// const app = express(); //shu belgini qoysek bizga expressni app objectni yuboradi
+
+
+app.use(express.static("public"));
+// app.use(express.static("public")); // bu har qanday kelyatgan zaprosslar uchun public ochiq degan manoni anglatadi faqat public folderni koradi
+
+app.use(express.json());
+// app.use(express.json());
+
+app.use(express.urlencoded({extended:true}));
+// app.use(express.urlencoded({extended:true}));
+
+//**                                  2: Session
+//**                                  3: Views
+
+
+app.set("view engine", "ejs");
+
+//**                                      4 Routing
+// app.post("/create-list", (req, res) => {   //post formdan shu erga keladi 
+//     console.log(req.body); // body qismidan requestni qabul qiladi  body qismidan malumot keladi
+//     res.end("succes"); // res.json  json shaklida malumotni qaytarish 
+// })
+
+
+app.post("/create-list", (req, res) => {
+    console.log("user entered /creat-item")
+    console.log(req.body);
+    const new_reja = req.body.reja;
+       db.collection("plan").insertOne({ reja: new_reja }, (err, data) => {
+        if (err) {
+            console.log(err);
+            res.end("something went wrong");
+        } else {
+            res.end("successfully added");
+        }
+    }); 
+});
+
+app.get("/", function (req, res) {
+    console.log("user entered /")
+    db.collection("plan")
+    .find()
+    .toArray((err, data) => {
+        if (err) {
+            console.log(err);
+            res.end("something went wrong");
+        } else {
+            console.log(data);
+            res.render("reja", { items: data });
+        }
+    });
+});
+
+
+module.exports = app
