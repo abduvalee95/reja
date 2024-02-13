@@ -32,7 +32,7 @@
                 <li
                 class="list-group-item list-group-item-info d-flex align-items-center justify-content-between" 
                 > 
-                 <span class="item-text"><%=item.reja%><!--  itemdan rejani chiqarib olamiz--></span> 
+                 <span class="item-text"><%=item.reja%></span> 
                 <div>
                 <button data-id="<%=item._id%>" class="edit-me btn btn-secondary btn-sm mr-1"> O'zgartirish</button>  <!--btnga idlarini bervolimz qaysini ochirishdi bilish uchun -->
                 <button data-id="<%=item._id%>" class="delete-me btn btn-danger btn-sm"> O'chirish</button>
@@ -40,8 +40,8 @@
 
                 </li>
                <% })%>
-
               </ul>
+              <button id="clean-all" class="btn btn-danger" style="border-radius: 20%; width: 100%;"> Xammasini o'chirish</button>
               <!-- listn tugashi / -->
     </div>
     <!-- bu axios -->

@@ -120,7 +120,7 @@ app.post("/create-item", (req, res) => {
     }); 
 });
 // delete itemni appi 
-app.post("/delete-item",function (req, res) {
+app.post("/delete-item", function (req, res) {
     const id = req.body.id;
     /* console.log(id); //axiosdan post qilganimizni id ni bu erdan qabul qilib olyabmiz
     res.end("done")
@@ -142,7 +142,32 @@ butondi 2 ta tepada
 */
 
 // end delete-item backend 
+// ** start edit api 
+app.post("/edit-item", function (req, res) {
+    const data = req.body;
+    // console.log(data);
+    // res.send("done!")
+    db.collection("plan").findOneAndUpdate(
+        { _id: new mongodb.ObjectId(data.id)},
+        {$set:{reja: data.new_input}},// set comanda rejani yangi text bn nomlasin
+        function (err,data){ 
+            res.json({ state: "success" })
+    } ) // databaseda edit qilamiz endi
+})
 
+// end edit
+
+// * start delete-all 
+app.post("/delete-all", function (req, res) {
+    db.collection("plan").deleteMany(  function () {
+        res.json({state: "all plans deleted"})
+    }
+    )
+})
+
+
+
+//end delete-all
 app.get("/", function (req, res) {
     console.log("user entered /")
     db.collection("plan")
