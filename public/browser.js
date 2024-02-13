@@ -38,3 +38,40 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
 });
 
 // ochirish hamda ozgartirish logic yozish
+
+document.addEventListener("click", function (e) {
+   
+ //   console.log(e);// e ni ichini korib olsek classlar bor va btn larimiz bor
+//**   start delete oper
+    if (e.target.classList.contains("delete-me")) { // containsni ichida "delete-me degan tugmani tekshiryabmiz"
+//        alert("siz ochirish tugmasni bosdingiz");
+    if (confirm("Aniq O'chirmoqchimisiz?")) {// bu ikita button chiqaradi yes no 
+  
+        // tekshirvolamiz
+        /*    alert("Yes");
+    } else {
+        alert("No")
+    } */
+    // end tekshirish
+    axios
+    .post("/delete-item", { id: e.target.getAttribute("data-id")})
+    // buttoni deleteni shakilantirib olamiz
+    .then((response) => {
+        console.log(response.data);
+        e.target.parentElement.parentElement.remove()
+    })
+    .catch((err) => {
+        console.log("Iltimos qayta O'chirin");
+    })
+    };
+}
+//end delete
+
+//**start edit oper
+
+    if(e.target.classList.contains("edit-me")) { // containsni ichida "delete-me degan tugmani tekshiryabmiz"
+        alert("siz Ozgartirish tugmasni bosdingiz")
+    }
+
+// end edit
+});

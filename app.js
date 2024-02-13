@@ -68,8 +68,10 @@ server.listen(PORT, function(){
 
 // const express = require("express");
 const express = require("express");
-
+// Mongo db va server chaqirish
 const db = require('./server').db();
+const mongodb = require("mongodb")
+
 // const db = require('./server').db() //shu orqali Crud ni amalga oshiramiz
 
 const app = express();
@@ -77,11 +79,8 @@ const app = express();
 
 
 app.use(express.static("public"));
-// app.use(express.static("public")); // bu har qanday kelyatgan zaprosslar uchun public ochiq degan manoni anglatadi faqat public folderni koradi
-
+// bu har qanday kelyatgan zaprosslar uchun public ochiq degan manoni anglatadi faqat public folderni koradi
 app.use(express.json());
-// app.use(express.json());
-
 app.use(express.urlencoded({extended:true}));
 // app.use(express.urlencoded({extended:true}));
 
@@ -120,6 +119,29 @@ app.post("/create-item", (req, res) => {
 
     }); 
 });
+// delete itemni appi 
+app.post("/delete-item",function (req, res) {
+    const id = req.body.id;
+    /* console.log(id); //axiosdan post qilganimizni id ni bu erdan qabul qilib olyabmiz
+    res.end("done")
+     */
+    // databasedan ochirish start
+    db.collection("plan").deleteOne({ _id: new mongodb.ObjectId(id)},
+    function (err, data){
+        res.json({ state: "success" })
+    }
+    );
+});
+
+/* 
+browser.jsdan clic itemni bosganimizda delete-me ishlaganda confirm 
+olsa shunda idni yuboryabti delete itemga va biz uni db dan ochirib yuboryabmiz
+javob respons da qaytib boradi faqat db da ochirildi endi viewdan ochirish kk
+response borganda  liga borish uchun  parentelement parentelementni ochirishimiz kk 
+butondi 2 ta tepada 
+*/
+
+// end delete-item backend 
 
 app.get("/", function (req, res) {
     console.log("user entered /")
