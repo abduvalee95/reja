@@ -98,10 +98,12 @@ app.set("view engine", "ejs");
 // })
 
 
-app.post("/create-list", (req, res) => {
+app.post("/create-item", (req, res) => {
     console.log("user entered /creat-item")
     console.log(req.body);
     const new_reja = req.body.reja;
+   /*  
+    // bi traditional 
        db.collection("plan").insertOne({ reja: new_reja }, (err, data) => {
         if (err) {
             console.log(err);
@@ -109,6 +111,13 @@ app.post("/create-list", (req, res) => {
         } else {
             res.end("successfully added");
         }
+        // end traditional 
+ */
+            // start modern 
+       db.collection("plan").insertOne({ reja: new_reja }, (err, data) => {
+        console.log(data.ops);// mongo db qaytaryabti
+        res.json(data.ops[0]);// datani ichida ops objectidan arraybor shu arrni 0 indeksini yuboryabmiz
+
     }); 
 });
 
