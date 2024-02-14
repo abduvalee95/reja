@@ -101,12 +101,12 @@ class Shop {
 
     sotish(sold) {
         if (this.mahsulot1 -= sold){
-            console.log(mahsulot);
             } else if (this.mahsulot2 -= sold) { 
-                console.log(mahsulot);
+
             } else if ( this.mahsulot3 -= sold) {
-                console.log(mahsulot);
+
             }
+            console.log(`${this.mahsulot}`);
     };
 
     qoldiq() {
@@ -118,5 +118,7 @@ const shop = new Shop("cola","snikers","banan");
 console.log(shop);
 const q = shop.qoldiq();
 // console.log(q);
+console.log(shop);
+const s = shop.sotish("banan")
 console.log(shop);
 

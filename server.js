@@ -19,7 +19,7 @@ else {
     module.exports = client // db degan objectmizni ovolamiz
     const app = require("./app");
     const server = http.createServer(app); //biz yasab olgan express app variableni pass qilish
-    let PORT = 3000;
+    let PORT = process.env.PORT || 3000;
     server.listen(PORT, function(){
          console.log(`Server ishga tushdi: ${PORT}, http://localhost:${PORT}`);
     }); // server succes bolsa iwlasa fucntion ishga tushadi 

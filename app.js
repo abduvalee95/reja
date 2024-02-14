@@ -103,7 +103,7 @@ app.post("/create-item", (req, res) => {
     const new_reja = req.body.reja;
    /*  
     // bi traditional 
-       db.collection("plan").insertOne({ reja: new_reja }, (err, data) => {
+       db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
         if (err) {
             console.log(err);
             res.end("something went wrong");
@@ -113,7 +113,7 @@ app.post("/create-item", (req, res) => {
         // end traditional 
  */
             // start modern 
-       db.collection("plan").insertOne({ reja: new_reja }, (err, data) => {
+       db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
         console.log(data.ops);// mongo db qaytaryabti
         res.json(data.ops[0]);// datani ichida ops objectidan arraybor shu arrni 0 indeksini yuboryabmiz
 
@@ -126,7 +126,8 @@ app.post("/delete-item", function (req, res) {
     res.end("done")
      */
     // databasedan ochirish start
-    db.collection("plan").deleteOne({ _id: new mongodb.ObjectId(id)},
+    db.collection("plans").deleteOne({ _id: new mongodb.ObjectId(id)},
+    // db.colection(methodi)"plans"di ushlab kelib deleteOne methodini  idga teng bolganini ochrib ber
     function (err, data){
         res.json({ state: "success" })
     }
@@ -144,10 +145,10 @@ butondi 2 ta tepada
 // end delete-item backend 
 // ** start edit api 
 app.post("/edit-item", function (req, res) {
-    const data = req.body;
+    const data = req.body.id;
     // console.log(data);
     // res.send("done!")
-    db.collection("plan").findOneAndUpdate(
+    db.collection("plans").findOneAndUpdate(
         { _id: new mongodb.ObjectId(data.id)},
         {$set:{reja: data.new_input}},// set comanda rejani yangi text bn nomlasin
         function (err,data){ 
@@ -159,7 +160,7 @@ app.post("/edit-item", function (req, res) {
 
 // * start delete-all 
 app.post("/delete-all", function (req, res) {
-    db.collection("plan").deleteMany(  function () {
+    db.collection("plans").deleteMany(  function () {
         res.json({state: "all plans deleted"})
     }
     )
@@ -170,7 +171,7 @@ app.post("/delete-all", function (req, res) {
 //end delete-all
 app.get("/", function (req, res) {
     console.log("user entered /")
-    db.collection("plan")
+    db.collection("plans")
     .find()
     .toArray((err, data) => {
         if (err) {

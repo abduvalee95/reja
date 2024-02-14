@@ -23,7 +23,7 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
     /* bu orqalik new rejani qiymatni pass qilishim kk */
     // modern post: reques
     axios
-    .post("create-item", { reja: createField.value }) // inputga kirgan valueni qabul rejaga tenglashtirib axios orqali post qilyabmoiz 
+    .post("/create-item", { reja: createField.value }) // inputga kirgan valueni qabul rejaga tenglashtirib axios orqali post qilyabmoiz 
      .then((response) => {
         document.getElementById("item-list").insertAdjacentHTML("beforeend", itemTemplate(response.data));
 
@@ -63,7 +63,7 @@ document.addEventListener("click", function (e) {
         e.target.parentElement.parentElement.remove()
     })
     .catch((err) => {
-        console.log("Iltimos qayta O'chirin");
+        console.log("Hatolik yuz berdi");
     })
     };
 }
@@ -79,14 +79,16 @@ document.addEventListener("click", function (e) {
             .post("/edit-item",{
                 id: e.target.getAttribute("data-id"), //shu er data object
                  new_input:userInput //data obj
-                 }).then(respons => {
+                 })
+                 .then((response) => {
                     // frontendda eski holdagi db ni yangi holidagiga ozgartirib beradi
-                    console.log(respons);
+                    console.log(response);
                     e.target.parentElement.parentElement.querySelector(
                         ".item-text"
-                    ).innerHTML = userInput
+                    ).innerHTML = userInput;
                         // end 
-                 }).catch(err => {
+                 })
+                 .catch(err => {
                     console.log("hatolik");
                  })
         }
