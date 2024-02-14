@@ -75,3 +75,48 @@ console.log(c); // Konsolga natijani chiqarish
 //     }
 // }
 // }
+
+// **                           Task -D
+
+class Shop {
+    mahsulot1 = 0;
+    mahsulot2 = 0;
+    mahsulot3 = 0;
+
+    constructor(mahsulot1,mahsulot2,mahsulot3) {
+        this.mahsulot1 = mahsulot1;
+        this.mahsulot2= mahsulot2;
+        this.mahsulot3 = mahsulot3;
+    };
+    // methods 
+    qabul(mahsulot) {
+        if (this.mahsulot1 += mahsulot){
+        console.log(mahsulot);
+        } else if (this.mahsulot2 += mahsulot) { 
+            console.log(mahsulot);
+        } else if ( this.mahsulot3 += mahsulot) {
+            console.log(mahsulot);
+        }
+    }
+
+    sotish(sold) {
+        if (this.mahsulot1 -= sold){
+            console.log(mahsulot);
+            } else if (this.mahsulot2 -= sold) { 
+                console.log(mahsulot);
+            } else if ( this.mahsulot3 -= sold) {
+                console.log(mahsulot);
+            }
+    };
+
+    qoldiq() {
+     console.log(`sizda ${this.mahsulot1} ${this.mahsulot2} ${this.mahsulot3} lar bor`);
+    }
+
+}
+const shop = new Shop("cola","snikers","banan");
+console.log(shop);
+const q = shop.qoldiq();
+// console.log(q);
+console.log(shop);
+
