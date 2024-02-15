@@ -49,6 +49,8 @@ console.log(`siz yozgan yozuvda "${count1}"dan ${result1} ta mavjud`)
 // console.log(`The letter "${letterToCount}" occurs ${result} times in the string.`);
 
  */
+
+
 // **                               Task -B
 function countDigit(str) {
     let count = 0; // Raqamlar soni uchun hisoblovchi o'zgaruvchi
@@ -77,7 +79,7 @@ console.log(c); // Konsolga natijani chiqarish
 // }
 
 // **                           Task -D
-
+/* 
 class Shop {
     mahsulot1 = 0;
     mahsulot2 = 0;
@@ -121,4 +123,31 @@ const q = shop.qoldiq();
 console.log(shop);
 const s = shop.sotish("banan")
 console.log(shop);
+
+ */
+
+// **                                   Task - G
+
+/* function checkContent(str,str2)  {
+    const content = str.map(str2 => str !== str2)
+    console.log(content);
+}
+checkContent('hi','hi')
+
+function checkContent(str,str2)  {
+
+    let a = str
+    let b = str2 
+    const content = 
+
+}
+checkContent('hi','hi')
+ */
+
+function checkContent(str1, str2) {
+    const content = str1 === str2;
+    console.log(content);
+}
+
+checkContent('salom', 'salom');
 
