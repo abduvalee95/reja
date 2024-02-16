@@ -68,15 +68,26 @@ console.log(c); // Konsolga natijani chiqarish
 
 // **                             Task optional
 
-// const xayvonlar = ['tulki','bori','ot','baliq']
+const xayvonlar = ['tulki','bori','ot','baliq','ayiq']
 
-// function findAnimal(txt) {
-// for (let i = 0; i <txt.length;i++){
-//     if (!txt[i]){
-//         const a = pop(txt).length
-//     }
-// }
-// }
+function findAnimal(txt) {
+let idx = xayvonlar.find()
+console.log(idx);
+
+}
+findAnimal('t')
+
+
+const indices = [];
+const array = ['ayiq','tulki','jirafa','aew']
+const element = "ayiq";
+let idx = array.indexOf(element);
+while (idx !== -1) {
+  indices.push(idx);
+  idx = array.indexOf(element, idx + 1);
+}
+console.log(indices);
+// [0, 2, 4]
 
 // **                           Task -D
 /* 
@@ -144,10 +155,22 @@ function checkContent(str,str2)  {
 checkContent('hi','hi')
  */
 
-function checkContent(str1, str2) {
+/* function checkContent(str1, str2) {
     const content = str1 === str2;
     console.log(content);
+
 }
 
 checkContent('salom', 'salom');
+ */
+// **                           task g -2 chi version
+/* function checkContent(str1, str2) {
+    const s = str1.split('').map((ele) => {
+        return str2.includes(ele)
+    });
+    console.log(s);
+}
 
+checkContent('hedsllo', 'lloelh');
+
+ */

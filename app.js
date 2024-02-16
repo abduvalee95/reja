@@ -145,7 +145,7 @@ butondi 2 ta tepada
 // end delete-item backend 
 // ** start edit api 
 app.post("/edit-item", function (req, res) {
-    const data = req.body.id;
+    const data = req.body;
     // console.log(data);
     // res.send("done!")
     db.collection("plans").findOneAndUpdate(
