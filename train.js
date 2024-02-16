@@ -52,23 +52,23 @@ console.log(`siz yozgan yozuvda "${count1}"dan ${result1} ta mavjud`)
 
 
 // **                               Task -B
-function countDigit(str) {
-    let count = 0; // Raqamlar soni uchun hisoblovchi o'zgaruvchi
-    for (let i = 0; i < str.length; i++) { // Raqamlarni sanash uchun tsikl
-        if (!isNaN(str[i]) && str[i] !== ' ') { // Raqam emasligini va bo'shliq emasligini tekshiramiz
-            count++; // Raqamlarni hisobga olish
-        }
-    }
-    return count; // Hisobni qaytarish
-}
+// function countDigit(str) {
+//     let count = 0; // Raqamlar soni uchun hisoblovchi o'zgaruvchi
+//     for (let i = 0; i < str.length; i++) { // Raqamlarni sanash uchun tsikl
+//         if (!isNaN(str[i]) && str[i] !== ' ') { // Raqam emasligini va bo'shliq emasligini tekshiramiz
+//             count++; // Raqamlarni hisobga olish
+//         }
+//     }
+//     return count; // Hisobni qaytarish
+// }
 
-const c = countDigit('rn245j5es323'); // Funksiyani chaqirish
-console.log(c); // Konsolga natijani chiqarish
+// const c = countDigit('rn245j5es323'); // Funksiyani chaqirish
+// console.log(c); // Konsolga natijani chiqarish
 
 
 // **                             Task optional
 
-const xayvonlar = ['tulki','bori','ot','baliq','ayiq']
+/* const xayvonlar = ['tulki','bori','ot','baliq','ayiq']
 
 function findAnimal(txt) {
 let idx = xayvonlar.find()
@@ -87,7 +87,7 @@ while (idx !== -1) {
   idx = array.indexOf(element, idx + 1);
 }
 console.log(indices);
-// [0, 2, 4]
+// [0, 2, 4] */
 
 // **                           Task -D
 /* 
@@ -163,7 +163,7 @@ checkContent('hi','hi')
 
 checkContent('salom', 'salom');
  */
-// **                           task g -2 chi version
+// **                           task G -2 chi version
 /* function checkContent(str1, str2) {
     const s = str1.split('').map((ele) => {
         return str2.includes(ele)
@@ -174,3 +174,12 @@ checkContent('salom', 'salom');
 checkContent('hedsllo', 'lloelh');
 
  */
+
+// **                           task E -2 chi version
+
+
+const getReverse = (str) => { 
+    return str.split('').reverse()
+    // return str.split('').reverse().join('') join qoshib yozgani
+}
+console.log(getReverse("Assalomu alaykum"));
